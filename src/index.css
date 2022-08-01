@@ -1,0 +1,61 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* This is for the Container Background */
+  /* background-color: rgba(5, 14, 65, 0.8); */
+  background-color: rgba(3, 21, 59, 0.9);
+  color: white;
+  font-family: monospace;
+  transition: all 0.3s linear;
+}
+
+.dark-mode {
+  background-color: white;
+  color: black;
+}
+
+.container {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 1);
+  padding-left: calc(var(--bs-gutter-x) * 1);
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  display: flex;
+  place-items: center;
+}
+.name svg {
+  margin-right: 5px;
+}
+.name h2 {
+  font-size: 20px;
+}
+
+.toggleMode {
+  display: flex;
+  place-items: center;
+  cursor: pointer;
+}
+
+.toggleMode p {
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+}
