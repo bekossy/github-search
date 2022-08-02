@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from "react";
-import { useFetch } from "./useFetch";
+import React, { useState } from "react";
 import { Layout } from "../layout/Layout";
+import { Loading } from "../layout/Loading";
 
 const url = "https://api.github.com/users/";
 export const Search = () => {
   const [text, setText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [fetched, setFetched] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(url + text);
-    fetch(url + text)
-      .then((resp) => {
-        if (resp.status >= 200 && resp.status <= 299) {
-          return resp.json();
-        } else {
-          throw new Error(resp.statusText);
-        }
-      })
-      .then((user) => {
-        console.log(user);
-      })
-      .catch((error) => console.log(error));
+    if (text) {
+      setIsLoading(true);
+      fetch(url + text)
+        .then((resp) => {
+          if (resp.status >= 200 && resp.status <= 299) {
+            return resp.json();
+          } else {
+            throw new Error(resp.statusText);
+          }
+        })
+        .then((user) => {
+          console.log(user);
+          setIsLoading(false);
+          return <Layout {...user} key={user.id} />;
+        })
+        .catch((error) => console.log(error));
+    }
+
     setText("");
   };
 
@@ -43,6 +52,7 @@ export const Search = () => {
           Search
         </button>
       </form>
+      {isLoading && <Loading />}
     </>
   );
 };
