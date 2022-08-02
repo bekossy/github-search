@@ -2,9 +2,13 @@ import React, { useState } from "react";
 
 export const Search = () => {
   const [text, setText] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <svg style={{ width: "30px", height: "30px" }} viewBox="0 0 24 24">
           <path
             fill="#134ebd"
