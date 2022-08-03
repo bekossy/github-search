@@ -6,16 +6,26 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: rgba(3, 21, 59, 0.9);
-  color: white;
-  font-family: monospace;
-  transition: all 0.3s linear;
+:root {
+  --bg-color: rgba(3, 21, 59, 0.9);
+  --color: white;
+  --search: rgb(69, 73, 100);
+  --errorCol: white;
+}
+.light-mode {
+  --bg-color: rgba(221, 221, 221, 0.555);
+  --color: black;
+  --search: white;
+  --placeholder: rgba(73, 72, 72, 0.76);
+  --boxShadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --errorCol: rgb(230, 66, 66);
 }
 
-.dark-mode {
-  background-color: white;
-  color: black;
+body {
+  background-color: var(--bg-color);
+  color: var(--color);
+  font-family: monospace;
+  transition: all 0.3s linear;
 }
 
 .container {
@@ -25,7 +35,7 @@ body {
   padding-right: calc(var(--bs-gutter-x) * 1);
   padding-left: calc(var(--bs-gutter-x) * 1);
   max-width: 700px;
-  margin: 25px auto;
+  margin: 35px auto;
 }
 
 /* Title Folder */
@@ -64,35 +74,36 @@ body {
 input[type="text"],
 input[type="text"]:focus {
   outline: none;
-  background-color: rgb(69, 73, 100);
+  background-color: var(--search);
   display: block;
-  color: white;
+  color: var(--color);
   width: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 0.7rem 0.75rem;
   padding-left: 40px;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   background-clip: padding-box;
-  border: 1px solid rgb(69, 73, 100);
+  border: 1px solid var(--search);
   border-radius: 0.375rem;
+  box-shadow: var(--boxShadow);
 }
 input::placeholder {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--placeholder);
 }
 
 .form svg {
   position: relative;
-  top: 38px;
+  top: 42px;
   margin-left: 10px;
 }
 
 .btn {
   position: relative;
-  bottom: 71px;
+  bottom: 75px;
   right: -3px;
   float: right;
-  background: #134ebd;
+  background: #2a68db;
   padding: 0.48rem 1rem;
   color: white;
   border-radius: 7px;
@@ -104,10 +115,35 @@ input::placeholder {
   margin-right: 0.5rem;
   cursor: pointer;
 }
+.btn:hover {
+  background-color: var(--bg-color);
+  color: var(--color);
+}
 /* ------------ */
 
 /* Layout Folder */
-
+.loading {
+  text-align: center;
+  border: none;
+  margin-top: 40px;
+  padding: 90px 0;
+  padding-left: 40px;
+  font-size: 40px;
+  background-color: var(--search);
+  box-shadow: var(--boxShadow);
+  border-radius: 8px;
+}
+.error {
+  text-align: center;
+  border: none;
+  margin-top: 40px;
+  padding: 90px 0;
+  font-size: 40px;
+  background-color: var(--search);
+  box-shadow: var(--boxShadow);
+  border-radius: 8px;
+  color: var(--errorCol);
+}
 /* ----------- */
 
 /*  */
