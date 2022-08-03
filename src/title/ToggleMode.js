@@ -4,7 +4,7 @@ export const ToggleMode = () => {
   const [isMode, setIsMode] = useState(false);
 
   const handleToggle = (data) => {
-    data.classList.toggle("dark-mode");
+    data.classList.toggle("light-mode");
     if (isMode) {
       return setIsMode(false);
     } else {
