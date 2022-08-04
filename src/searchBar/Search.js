@@ -13,9 +13,7 @@ export const Search = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(url + text);
 
-    console.log(isLoading, fetched, isError);
     if (text) {
       setFetched(false);
 
@@ -25,7 +23,6 @@ export const Search = () => {
       try {
         const resp = await fetch(url + text);
         const data = await resp.json();
-        console.log(data);
         setUser(data);
         if (resp.status >= 399) {
           setIsLoading(false);
