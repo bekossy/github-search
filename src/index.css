@@ -42,6 +42,10 @@ body {
   margin: 35px auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Title Folder */
 .title {
   display: flex;
@@ -203,6 +207,8 @@ input::placeholder {
 .social {
   display: flex;
   place-items: center;
+  margin: 10px 3px;
+  margin-bottom: 15px;
 }
 
 .social svg {
@@ -257,5 +263,11 @@ input::placeholder {
   }
   .bio {
     clear: both;
+  }
+  .contact {
+    display: block;
+  }
+  .social {
+    margin-bottom: 9px;
   }
 }
