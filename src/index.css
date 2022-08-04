@@ -246,10 +246,13 @@ input::placeholder {
   }
   .lay-img img {
     width: 80px;
+    margin-bottom: 10px;
   }
   .user h2 {
     font-size: 22px;
-    margin-bottom: 3px;
+  }
+  .joined {
+    margin-top: 3px;
   }
   .username {
     display: block;
@@ -265,5 +268,44 @@ input::placeholder {
   }
   .social {
     margin-bottom: 9px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .lay-img img {
+    margin-right: 15px;
+  }
+  .user h2 {
+    font-size: 20px;
+  }
+  .follow h3 {
+    font-size: 12px;
+  }
+  .follow p {
+    font-size: 17px;
+  }
+  .repo {
+    margin: 0 3px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .layout {
+    padding: 30px;
+  }
+  .follow {
+    display: block;
+    text-align: center;
+    padding: 10px;
+  }
+  .repo {
+    margin: 5px auto;
+    border-bottom: 1px solid var(--color);
+  }
+  .repo:last-of-type {
+    border: none;
+  }
+  .repo h3 {
+    margin-bottom: 3px;
   }
 }
