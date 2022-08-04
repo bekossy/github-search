@@ -10,14 +10,18 @@
   --bg-color: rgba(3, 21, 59, 0.9);
   --color: white;
   --search: rgb(69, 73, 100);
+  --layout-text: rgb(238, 235, 235);
   --errorCol: white;
+  --layout-h2: rgb(255, 255, 255);
 }
 .light-mode {
   --bg-color: rgba(221, 221, 221, 0.555);
   --color: black;
   --search: white;
   --placeholder: rgba(73, 72, 72, 0.76);
+  --layout-text: rgba(73, 72, 120, 0.76);
   --boxShadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --layout-h2: rgba(3, 21, 59, 0.9);
   --errorCol: rgb(230, 66, 66);
 }
 
@@ -122,6 +126,89 @@ input::placeholder {
 /* ------------ */
 
 /* Layout Folder */
+.layout {
+  display: flex;
+  background-color: var(--search);
+  box-shadow: var(--boxShadow);
+  color: var(--layout-text);
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  bottom: 50px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 8px;
+  margin: 30px auto;
+  padding: 40px;
+}
+
+.lay-img img {
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 40px;
+}
+
+.username {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+
+.user h2 {
+  color: var(--layout-h2);
+  font-size: 25px;
+}
+.user h4 a {
+  color: #2a68db;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.bio {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.follow {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.repo {
+  width: 100%;
+}
+.repo h3 {
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+.repo p {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.social {
+  display: flex;
+  place-items: center;
+}
+
+.social svg {
+  margin-right: 8px;
+}
+
 .loading {
   text-align: center;
   border: none;
@@ -149,3 +236,26 @@ input::placeholder {
 /*  */
 /*  */
 /*  */
+@media screen and (max-width: 575px) {
+  .layout {
+    display: block;
+    margin-top: 25px;
+    bottom: 0;
+  }
+  .lay-img img {
+    width: 80px;
+  }
+  .user h2 {
+    font-size: 22px;
+    margin-bottom: 3px;
+  }
+  .username {
+    display: block;
+  }
+  .lay-img {
+    float: left;
+  }
+  .bio {
+    clear: both;
+  }
+}
