@@ -49,7 +49,7 @@ export const Layout = (props) => {
             <div className="user">
               <h2>{name}</h2>
               <h4>
-                <a href={html_url} target="_blank">
+                <a href={html_url} target="_blank" rel="noreferrer">
                   {"@" + login}
                 </a>
               </h4>
