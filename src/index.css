@@ -42,10 +42,6 @@ body {
   margin: 35px auto;
 }
 
-a {
-  text-decoration: none;
-}
-
 /* Title Folder */
 .title {
   display: flex;
