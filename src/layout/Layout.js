@@ -29,9 +29,11 @@ export const Layout = (props) => {
     "Dec",
   ];
   const time = new Date(created_at);
-  let day = time.getDay();
+  let day = time.getDate();
   if (day < 10) {
-    day = `0${time.getDay()}`;
+    day = `0${time.getDate()}`;
+  } else {
+    day = `${time.getDate()}`;
   }
   const month = months[time.getMonth()];
   const year = time.getFullYear();
