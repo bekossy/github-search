@@ -9,32 +9,37 @@ export const Search = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [fetched, setFetched] = useState(false);
+  const [user, setUser] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(url + text);
+
+    console.log(isLoading, fetched, isError);
     if (text) {
-      setIsLoading(true);
+      setFetched(false);
+
       setIsError(false);
-      fetch(url + text)
-        .then((resp) => {
-          if (resp.status >= 200 && resp.status <= 299) {
-            return resp.json();
-          } else {
-            setIsError(true);
-            setIsLoading(false);
-          }
-        })
-        .then((user) => {
-          console.log(user);
+      setIsLoading(true);
+
+      try {
+        const resp = await fetch(url + text);
+        const data = await resp.json();
+        console.log(data);
+        setUser(data);
+        if (resp.status >= 399) {
           setIsLoading(false);
-          setIsError(false);
-          return <Layout {...user} key={user.id} />;
-        })
-        .catch(() => {
           setIsError(true);
-          setIsLoading(false);
-        });
+          setFetched(false);
+          return;
+        }
+        setFetched(true);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setIsError(true);
+        setFetched(false);
+      }
     }
 
     setText("");
@@ -60,6 +65,7 @@ export const Search = () => {
         </button>
       </form>
       {isLoading && <Loading />}
+      {fetched && <Layout {...user} />}
       {isError && <Error />}
     </>
   );
