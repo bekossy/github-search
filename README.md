@@ -1,3 +1,13 @@
+# GitHub Search App
+
+- Search for GitHub users by their username
+
+- See relevant user information based on search
+
+- Switch between light and dark themes
+
+- Mobile responsive
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
